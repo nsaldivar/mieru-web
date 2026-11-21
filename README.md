@@ -12,7 +12,7 @@ Venta y reparación de consolas y mandos · Cusco, Perú
 ![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-**[🔗 Ver la página en vivo](https://TU-PROYECTO.vercel.app)**
+**[🔗 Ver la página en vivo](https://mieru-gilt.vercel.app)**
 
 </div>
 
