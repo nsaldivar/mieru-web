@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIERU | El Respawn de tu consola</title>
+  <meta name="description" content="MIERU: consolas, mandos y reparación. Consulta, diagnóstico, presupuesto, reparación y envío de tu consola.">
+  <meta name="theme-color" content="#0b3bff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-x">✕</div>
+      <div class="loader-word">MIERU</div>
+      <div class="loader-count"><span id="loaderPct">0</span>%</div>
+    </div>
+  </div>
+
+  <div id="stageBg"></div>
+  <canvas id="gl"></canvas>
+  <div id="cursor"></div>
+  <div id="progress"></div>
+
+  <header class="nav" id="nav">
+    <a href="#inicio" class="logo">MIERU<i>✕</i></a>
+    <button class="burger" id="burger" aria-label="Menú" aria-expanded="false"><i></i><i></i></button>
+    <nav id="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#consolas">Consolas</a>
+      <a href="#mandos">Mandos</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#reparaciones">Reparaciones</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto" class="pill">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="hero" data-bg="#0b3bff" data-ink="#ffffff">
+      <div class="hero-video" aria-hidden="true">
+        <video id="heroVid" autoplay muted loop playsinline preload="auto" disablepictureinpicture>
+          <source src="img/hero/gameplay.mp4" type="video/mp4">
+        </video>
+        <div class="hero-shade"></div>
+      </div>
+      <h1 class="big hero-big" data-speed="-10" aria-label="MIERU"><span class="chars">MIERU</span></h1>
+      <div class="slot slot-hs" data-model="headset"></div>
+      <div class="slot slot-hc" data-model="console"></div>
+      <div class="slot slot-hp" data-model="controller" data-color="#ffffff"></div>
+
+      <div class="hud ui" aria-hidden="true">
+        <span class="chip live"><i></i>GAMEPLAY EN VIVO</span>
+        <span class="chip" id="hudMode">MIERU RACE</span>
+        <span class="chip"><b id="hudFps">144</b> FPS</span>
+        <span class="chip"><b id="hudPing">12</b> ms</span>
+        <span class="chip">4K · HDR</span>
+      </div>
+
+      <div class="hero-copy ui">
+        <p class="eyebrow">Consolas · Mandos · Reparación</p>
+        <p class="hero-tag">El Respawn<br>de tu consola.</p>
+        <div class="hero-cta">
+          <a href="#consolas" class="btn mag">Ver consolas</a>
+          <a href="#reparaciones" class="btn btn-line mag">Cómo reparamos</a>
+        </div>
+      </div>
+      <div class="hero-hint ui">Scroll ↓</div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>CONSOLAS ✕ MANDOS ○ REPARACIÓN △ JUEGOS □ RESPAWN ✕ CONSOLAS ○ MANDOS △ REPARACIÓN □ JUEGOS ✕ RESPAWN ○ </span>
+        <span>CONSOLAS ✕ MANDOS ○ REPARACIÓN △ JUEGOS □ RESPAWN ✕ CONSOLAS ○ MANDOS △ REPARACIÓN □ JUEGOS ✕ RESPAWN ○ </span>
+      </div>
+    </div>
+
+    <section id="consolas" class="section two" data-bg="#ffd60a" data-ink="#111111">
+      <h2 class="big" data-speed="18" aria-hidden="true">CONSOLAS</h2>
+      <div class="col ui">
+        <span class="tag">01 — Consolas</span>
+        <h2 class="title split">Tu próxima aventura empieza aquí.</h2>
+        <p class="lead">Elige tu consola y empieza a jugar.</p>
+        <button class="btn mag buy" data-item="Consolas">COMPRAR</button>
+      </div>
+      <div class="slot slot-console" data-model="console"></div>
+    </section>
+
+    <section id="juegos" class="section games" data-bg="#0d0f1a" data-ink="#ffffff">
+      <h2 class="big outline" data-speed="-16" aria-hidden="true">JUEGOS</h2>
+      <div class="ui games-head">
+        <span class="tag">02 — Juegos</span>
+        <h2 class="title split">Los juegos que quieres jugar.</h2>
+        <p class="lead">Arrastra para ver más →</p>
+      </div>
+
+      <div class="rail ui" id="rail">
+        <article class="game tilt" style="--g1:#ff4d00;--g2:#2a0a3d"><img src="img/games/gta6.png" alt="" onerror="this.remove()"><div class="gcap"><small>PS5</small><h3>GTA VI</h3></div></article>
+        <article class="game tilt" style="--g1:#00c2ff;--g2:#071a3a"><img src="img/games/god-of-war.png" alt="" onerror="this.remove()"><div class="gcap"><small>PS5</small><h3>God of War Ragnarök</h3></div></article>
+        <article class="game tilt" style="--g1:#ff1744;--g2:#14002e"><img src="img/games/spiderman2.png" alt="" onerror="this.remove()"><div class="gcap"><small>PS5</small><h3>Marvel's Spider-Man 2</h3></div></article>
+        <article class="game tilt" style="--g1:#8bc34a;--g2:#10200b"><img src="img/games/the-last-of-us.png" alt="" onerror="this.remove()"><div class="gcap"><small>PS5</small><h3>The Last of Us</h3></div></article>
+        <article class="game tilt" style="--g1:#ffd600;--g2:#0a3d1f"><img src="img/games/fc.png" alt="" onerror="this.remove()"><div class="gcap"><small>PS5 · Xbox</small><h3>EA Sports FC</h3></div></article>
+        <article class="game tilt" style="--g1:#ff3d00;--g2:#101a40"><img src="img/games/gran-turismo.png" alt="" onerror="this.remove()"><div class="gcap"><small>PS5</small><h3>Gran Turismo 7</h3></div></article>
+      </div>
+    </section>
+
+    <section id="mandos" class="section two flip" data-bg="#ff6fb5" data-ink="#1a0620">
+      <h2 class="big" data-speed="-18" aria-hidden="true">MANDOS</h2>
+      <div class="slot slot-pad" data-model="controller" data-color="#ffffff"></div>
+      <div class="col ui">
+        <span class="tag">03 — Mandos</span>
+        <h2 class="title split">Control total en cada partida.</h2>
+        <p class="lead">Elige el color de tu mando.</p>
+        <div class="swatches" id="swatches">
+          <button class="sw on" data-color="#ffffff" style="--c:#ffffff" aria-label="Blanco"></button>
+          <button class="sw" data-color="#0070d1" style="--c:#0070d1" aria-label="Azul"></button>
+          <button class="sw" data-color="#e5222f" style="--c:#e5222f" aria-label="Rojo"></button>
+          <button class="sw" data-color="#ffb400" style="--c:#ffb400" aria-label="Amarillo"></button>
+          <button class="sw" data-color="#1ed760" style="--c:#1ed760" aria-label="Verde"></button>
+          <button class="sw" data-color="#7a3cff" style="--c:#7a3cff" aria-label="Morado"></button>
+          <button class="sw" data-color="#1b1b22" style="--c:#1b1b22" aria-label="Negro"></button>
+        </div>
+        <button class="btn mag buy" data-item="Mandos">COMPRAR</button>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section stack" data-bg="#f2f5ff" data-ink="#0b1230">
+      <h2 class="big" data-speed="-14" aria-hidden="true">CATÁLOGO</h2>
+      <div class="ui">
+        <span class="tag">04 — Catálogo</span>
+        <h2 class="title split">Productos</h2>
+        <h3 class="sub">Consolas</h3>
+        <div class="grid"><article class="pcard fade"><div class="p-art" style="--a:#00b7ff;--b:#0b3bff"><span>△</span><img src="img/products/nintendo-ds.png" alt="Nintendo DS" onerror="this.remove()"></div><h4>Nintendo DS</h4><div class="price">S/ 400</div><button class="btn buy" data-item="Nintendo DS (S/ 400)">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#00b7ff;--b:#0b3bff"><span>○</span><img src="img/products/nintendo-switch.png" alt="Nintendo Switch" onerror="this.remove()"></div><h4>Nintendo Switch</h4><div class="price">S/ 700</div><button class="btn buy" data-item="Nintendo Switch (S/ 700)">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#00b7ff;--b:#0b3bff"><span>✕</span><img src="img/products/wii-u.png" alt="Wii U" onerror="this.remove()"></div><h4>Wii U</h4><div class="price">S/ 500</div><button class="btn buy" data-item="Wii U (S/ 500)">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#00b7ff;--b:#0b3bff"><span>□</span><img src="img/products/ps4-slim.png" alt="PlayStation 4 Slim" onerror="this.remove()"></div><h4>PlayStation 4 Slim</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="PlayStation 4 Slim">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#00b7ff;--b:#0b3bff"><span>△</span><img src="img/products/ps5.png" alt="PlayStation 5" onerror="this.remove()"></div><h4>PlayStation 5</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="PlayStation 5">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#00b7ff;--b:#0b3bff"><span>○</span><img src="img/products/psp.png" alt="PSP" onerror="this.remove()"></div><h4>PSP</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="PSP">COMPRAR</button></article></div>
+        <h3 class="sub">Mandos</h3>
+        <div class="grid"><article class="pcard fade"><div class="p-art" style="--a:#ff6fb5;--b:#7a3cff"><span>△</span><img src="img/products/mando-ps5.png" alt="Mando PS5 (blanco)" onerror="this.remove()"></div><h4>Mando PS5 (blanco)</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="Mando PS5 (blanco)">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#ff6fb5;--b:#7a3cff"><span>○</span><img src="img/products/mando-ps4-negro.png" alt="Mando PS4 negro" onerror="this.remove()"></div><h4>Mando PS4 negro</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="Mando PS4 negro">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#ff6fb5;--b:#7a3cff"><span>✕</span><img src="img/products/mando-ps4-morado.png" alt="Mando PS4 morado" onerror="this.remove()"></div><h4>Mando PS4 morado</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="Mando PS4 morado">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#ff6fb5;--b:#7a3cff"><span>□</span><img src="img/products/mando-pro-switch.png" alt="Mando Pro Switch" onerror="this.remove()"></div><h4>Mando Pro Switch</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="Mando Pro Switch">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#ff6fb5;--b:#7a3cff"><span>△</span><img src="img/products/joycon-grip.png" alt="Joy-Con con grip" onerror="this.remove()"></div><h4>Joy-Con con grip</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="Joy-Con con grip">COMPRAR</button></article><article class="pcard fade"><div class="p-art" style="--a:#ff6fb5;--b:#7a3cff"><span>○</span><img src="img/products/mando-gamecube.png" alt="Mando GameCube" onerror="this.remove()"></div><h4>Mando GameCube</h4><div class="price ask">Consultar precio</div><button class="btn buy" data-item="Mando GameCube">COMPRAR</button></article></div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section stack" data-bg="#ff7a1a" data-ink="#1a0a00">
+      <h2 class="big" data-speed="14" aria-hidden="true">SERVICIOS</h2>
+      <div class="ui">
+        <span class="tag">05 — Servicios</span>
+        <h2 class="title split">Servicios</h2>
+        <div class="grid svc-grid">
+          <article class="pcard svc fade" style="--a:#00c2ff;--b:#0b3bff">
+            <div class="svc-art"><b>01</b><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="48" rx="22" ry="8"/><path d="M32 42V20"/><circle cx="32" cy="14" r="8"/><path d="M10 48v-4M54 48v-4"/></svg><img src="img/services/drift.png" alt="Reparación de Drift en Joystick" onerror="this.remove()"></div>
+            <h4>Reparación de Drift en Joystick</h4><p>Problemas con joysticks.</p>
+          </article>
+          <article class="pcard svc fade" style="--a:#ff2d87;--b:#7a3cff">
+            <div class="svc-art"><b>02</b><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="14" r="8"/><circle cx="32" cy="50" r="8"/><circle cx="14" cy="32" r="8"/><circle cx="50" cy="32" r="8" fill="#fff"/></svg><img src="img/services/botones.png" alt="Cambio de Botones" onerror="this.remove()"></div>
+            <h4>Cambio de Botones</h4><p>Botones dañados o hundidos.</p>
+          </article>
+          <article class="pcard svc fade" style="--a:#19e68c;--b:#00a3a3">
+            <div class="svc-art"><b>03</b><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="7" y="8" width="20" height="9" rx="4.5"/><rect x="37" y="8" width="20" height="9" rx="4.5"/><path d="M10 28c0-6 4-8 10-8h24c6 0 10 2 10 8l4 18c1 5-6 8-9 3l-5-8H20l-5 8c-3 5-10 2-9-3z"/><path d="M20 30v8M16 34h8"/><circle cx="44" cy="31" r="2"/><circle cx="48" cy="35" r="2"/></svg><img src="img/services/gatillos.png" alt="Cambio de Gatillos (L1, L2, R1, R2)" onerror="this.remove()"></div>
+            <h4>Cambio de Gatillos (L1, L2, R1, R2)</h4><p>Mantenimiento preventivo.</p>
+          </article>
+          <article class="pcard svc fade" style="--a:#ffd60a;--b:#ff4d00">
+            <div class="svc-art"><b>04</b><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="28" cy="28" r="18"/><path d="M41 41l16 16"/><path d="M16 28h7l3-7 5 14 3-7h4"/></svg><img src="img/services/diagnostico.png" alt="Diagnóstico general" onerror="this.remove()"></div>
+            <h4>Diagnóstico general</h4><p>Te decimos exactamente qué tiene tu equipo y cuánto costará arreglarlo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reparaciones" class="section two" data-bg="#19e68c" data-ink="#06231a">
+      <h2 class="big" data-speed="16" aria-hidden="true">REPARA</h2>
+      <div class="slot slot-gear" data-model="gears"></div>
+      <div class="col ui">
+        <span class="tag">06 — Reparaciones</span>
+        <h2 class="title split">Pasos de la reparación</h2>
+        <ol class="steps">
+          <li><b>01</b><span>Consulta</span></li>
+          <li><b>02</b><span>Recepción de la consola / mando</span></li>
+          <li><b>03</b><span>Diagnóstico</span></li>
+          <li><b>04</b><span>Presentación y confirmación del costo</span></li>
+          <li><b>05</b><span>Reparación</span></li>
+          <li><b>06</b><span>Envío de la consola</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="nosotros" class="section stack" data-bg="#0b1230" data-ink="#ffffff">
+      <h2 class="big outline" data-speed="-14" aria-hidden="true">SQUAD</h2>
+      <div class="ui">
+        <span class="tag">07 — Nosotros</span>
+        <h2 class="title split">Conoce al Squad detrás de MIERU</h2>
+        <p class="lead fade">Toca cada tarjeta para desplegarla.</p>
+        <div class="acc" id="acc">
+        <article class="acc-item open" style="--c1:#00c2ff;--c2:#0b3bff;--tx:#fff">
+          <button class="acc-head" aria-expanded="true"><span class="acc-ic">△</span><span class="acc-t">¿Quiénes somos?</span><i class="acc-plus"></i></button>
+          <div class="acc-body"><div class="acc-in"><div class="acc-pad"><p>Somos un equipo de estudiantes del curso electivo que, motivados por el aprendizaje práctico y el espíritu emprendedor, decidimos desarrollar este proyecto de reparación de mandos para videojuegos. La idea surge al identificar una necesidad frecuente entre los jugadores y contar con la experiencia técnica de uno de nuestros integrantes. Nuestro objetivo es brindar un servicio confiable, eficiente y accesible para prolongar la vida útil de los controles y mejorar la experiencia de los usuarios.</p></div></div></div>
+        </article>
+        <article class="acc-item" style="--c1:#ff2d87;--c2:#7a3cff;--tx:#fff">
+          <button class="acc-head" aria-expanded="false"><span class="acc-ic">○</span><span class="acc-t">Misión</span><i class="acc-plus"></i></button>
+          <div class="acc-body"><div class="acc-in"><div class="acc-pad"><blockquote>«Revivir la pasión por el juego ofreciendo servicios de reparación técnicos, rápidos y confiables para consolas y mandos. En Mieru, nos dedicamos a devolver la vida a tu equipo gamer con precisión y empatía, garantizando que ninguna partida importante, torneo o recuerdo se pierda por un fallo técnico.»</blockquote></div></div></div>
+        </article>
+        <article class="acc-item" style="--c1:#ffd60a;--c2:#ff7a1a;--tx:#1a0a00">
+          <button class="acc-head" aria-expanded="false"><span class="acc-ic">✕</span><span class="acc-t">Visión</span><i class="acc-plus"></i></button>
+          <div class="acc-body"><div class="acc-in"><div class="acc-pad"><blockquote>«Consolidarnos como el referente local y nacional en el cuidado, mantenimiento y reparación de hardware gamer. Aspiramos a ser la primera opción de la comunidad de videojuegos, reconocidos por nuestra transparencia, innovación en técnicas de reparación y por crear un ecosistema donde cada jugador sepa que en Mieru su equipo está en las mejores manos.»</blockquote></div></div></div>
+        </article>
+        <article class="acc-item" style="--c1:#19e68c;--c2:#00a3a3;--tx:#04231a">
+          <button class="acc-head" aria-expanded="false"><span class="acc-ic">□</span><span class="acc-t">Valores corporativos</span><i class="acc-plus"></i></button>
+          <div class="acc-body"><div class="acc-in"><div class="acc-pad"><div class="vals"><div class="val"><span class="val-ic">★</span><h4>Pasión Gamer</h4><p>Entendemos la frustración de que tu consola o mando falle. No solo reparamos aparatos, salvamos partidas y experiencias.</p></div><div class="val"><span class="val-ic">◎</span><h4>Transparencia y Honestidad</h4><p>Diagnósticos claros y presupuestos sin letras pequeñas. Te decimos exactamente qué tiene tu equipo y cuánto costará arreglarlo.</p></div><div class="val"><span class="val-ic">⚙</span><h4>Excelencia Técnica</h4><p>Utilizamos repuestos de alta calidad y herramientas de micro-soldadura para asegurar que tu equipo quede mejor que antes.</p></div><div class="val"><span class="val-ic">⚡</span><h4>Agilidad</h4><p>Sabemos que el tiempo de un gamer es valioso. Optimizamos nuestros procesos para entregar tu equipo en el menor tiempo posible sin sacrificar calidad.</p></div></div></div></div></div>
+        </article>
+        <article class="acc-item" style="--c1:#8a5cff;--c2:#00d4ff;--tx:#fff">
+          <button class="acc-head" aria-expanded="false"><span class="acc-ic">♟</span><span class="acc-t">Organigrama · Encargados</span><i class="acc-plus"></i></button>
+          <div class="acc-body"><div class="acc-in"><div class="acc-pad"><div class="team"><div class="member" style="--c:#00c2ff;--d:#0b3bff"><div class="avatar-svg"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="12" fill="#fff"/><path d="M8 62c0-14 11-22 24-22s24 8 24 22z" fill="#fff"/><path d="M20 21c0-10 5-15 12-15s12 5 12 15c-3-5-7-7-12-7s-9 2-12 7z" fill="rgba(25,10,45,.78)"/></svg></div><h4>Michael Barsaya Palomino</h4><p>Representante de Compras y Stock</p></div><div class="member" style="--c:#19e68c;--d:#00a3a3"><div class="avatar-svg"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="12" fill="#fff"/><path d="M8 62c0-14 11-22 24-22s24 8 24 22z" fill="#fff"/><path d="M20 21c0-10 5-15 12-15s12 5 12 15c-3-5-7-7-12-7s-9 2-12 7z" fill="rgba(25,10,45,.78)"/></svg></div><h4>Cesar Alexandro Palomino Jumo</h4><p>Representante de atención al cliente</p></div><div class="member" style="--c:#ffb400;--d:#ff7a1a"><div class="avatar-svg"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="12" fill="#fff"/><path d="M8 62c0-14 11-22 24-22s24 8 24 22z" fill="#fff"/><path d="M20 21c0-10 5-15 12-15s12 5 12 15c-3-5-7-7-12-7s-9 2-12 7z" fill="rgba(25,10,45,.78)"/></svg></div><h4>Fred Rodriguez</h4><p>Representante técnico de microsoldadura</p></div><div class="member" style="--c:#ff6fb5;--d:#ff2d87"><div class="avatar-svg"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M15 30c-2-16 6-25 17-25s19 9 17 25c-1 9 1 15 5 20-5 1-9 0-12-3H22c-3 3-7 4-12 3 4-5 6-11 5-20z" fill="rgba(25,10,45,.78)"/><circle cx="32" cy="25" r="11" fill="#fff"/><path d="M10 62c0-13 10-21 22-21s22 8 22 21z" fill="#fff"/><path d="M21 23c2-8 7-11 11-11s9 3 11 11c-4-3-8-4-11-4s-7 1-11 4z" fill="rgba(25,10,45,.78)"/><circle cx="21.5" cy="31" r="2" fill="#ffd60a"/><circle cx="42.5" cy="31" r="2" fill="#ffd60a"/></svg></div><h4>Itala Tamara Luna Chuquitarqui</h4><p>Representante de Marketing</p></div><div class="member" style="--c:#8a5cff;--d:#5b3bff"><div class="avatar-svg"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="23" r="12" fill="#fff"/><path d="M8 62c0-14 11-22 24-22s24 8 24 22z" fill="#fff"/><path d="M20 21c0-10 5-15 12-15s12 5 12 15c-3-5-7-7-12-7s-9 2-12 7z" fill="rgba(25,10,45,.78)"/></svg></div><h4>Kevin Cesar Ccopa Gonzales</h4><p>Representante de contenido y Redes Sociales</p></div></div></div></div></div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reclutamiento" class="section recruit" data-bg="#00d4ff" data-ink="#00212b">
+      <h2 class="big" data-speed="14" aria-hidden="true">JOIN</h2>
+      <div class="ui recruit-box">
+        <span class="tag">08 — Reclutamiento</span>
+        <h2 class="title split">Únete al Squad: buscamos un Maestro de la Microsoldadura</h2>
+        <p class="lead wide fade">¿Tienes pulso de cirujano y pasión por los videojuegos? En MIERU buscamos un técnico especializado en microsoldadura. No solo buscamos experiencia, buscamos personalidad.</p>
+        <form class="recruit-form" id="recruitForm">
+          <input type="text" id="rName" placeholder="Tu nombre completo" required>
+          <select id="rExp" required>
+            <option value="">Experiencia en microsoldadura</option>
+            <option>Sin experiencia (quiero aprender)</option>
+            <option>Menos de 1 año</option>
+            <option>De 1 a 3 años</option>
+            <option>Más de 3 años</option>
+          </select>
+          <button class="btn mag" type="submit">Postular</button>
+          <ol class="recruit-steps">
+            <li>Completa tus datos y pulsa <b>Postular</b>.</li>
+            <li>Se abre WhatsApp con tu mensaje ya escrito.</li>
+            <li>Adjunta tu <b>CV en PDF</b> con el clip 📎 y envíalo.</li>
+          </ol>
+        </form>
+      </div>
+    </section>
+
+    <section id="contacto" class="section two flip" data-bg="#6c3bff" data-ink="#ffffff">
+      <h2 class="big outline" data-speed="-16" aria-hidden="true">PLAY</h2>
+      <div class="slot slot-pad2" data-model="controller" data-color="#1b1b22"></div>
+      <form class="col ui contact" id="contactForm">
+        <span class="tag">09 — Contacto</span>
+        <h2 class="title split">¿Tu consola necesita un respawn?</h2>
+        <input type="text" id="cName" placeholder="Tu nombre" required>
+        <select id="cType" required>
+          <option value="">¿Qué necesitas?</option>
+          <option>Comprar una consola</option>
+          <option>Comprar un mando</option>
+          <option>Reparar mi consola</option>
+          <option>Reparar mi mando</option>
+        </select>
+        <textarea id="cMsg" rows="3" placeholder="Cuéntanos el problema o lo que buscas"></textarea>
+        <button class="btn mag" type="submit">Enviar por WhatsApp</button>
+      </form>
+
+      <div class="ui contact-info">
+        <article class="pcard fade"><h4>Horario</h4><ul>
+          <li><span>Lunes a viernes</span><b>9:00 am – 8:00 pm</b></li>
+          <li><span>Sábado</span><b>9:00 am – 9:00 pm</b></li>
+          <li><span>Domingo</span><b>Cerrado</b></li></ul></article>
+        <article class="pcard fade"><h4>Reserva tu cita</h4><p>Para reservar una cita, rellena este formulario.</p>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSctbt1CcmwQG7VI4oCiFSa0eeH0B0Tncfa4D6p_4IZj9zbmnA/viewform?usp=header" target="_blank" rel="noopener">Reservar cita</a></article>
+
+        <article class="pcard fade"><h4>Visítanos</h4><p>Estamos en la Avenida del Sol, 14, entre la calle Oriente y la calle Espejo. ¡Esperamos verte pronto!</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer ui">
+    <div class="logo">MIERU<i>✕</i></div>
+    <p>El Respawn de tu consola · © <span id="year"></span> MIERU</p>
+  </footer>
+
+  <button id="toTop" aria-label="Volver arriba">↑</button>
+
+  <script type="importmap">
+  {"imports":{
+    "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }}
+  </script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/scene3d.js"></script>
+</body>
+</html>
